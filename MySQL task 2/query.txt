@@ -1,0 +1,26 @@
+CREATE USER;
+create table users(user_id int primary key,
+user_name varchar(50),
+user_mail varchar(50)
+);
+
+CREATE COURSESNAME;
+create table coursesname(course_id int primary key,
+user_id int,
+course_name varchar(50),
+course_fees int,
+foreign key(user_id) references users(user_id)
+);
+
+CREATE MENTOR;
+create table mentor(user_id int primary key,
+course_name varchar(50),
+mentor_name varchar(50)
+);
+
+CREATE LEADERBOARD;
+create table leaderboard(batch_id int primary key,
+submitted_task int,user_id int,course_id int,
+foreign key(user_id) references users(user_id),
+foreign key(course_id) references coursesname(course_id)
+);
